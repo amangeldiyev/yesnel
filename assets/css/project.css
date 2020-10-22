@@ -4575,6 +4575,20 @@ figure {
   .spotify-widget-sib {
     min-width: 100% !important;
   }
+
+  .gp-image-portf {
+    -webkit-filter: grayscale(0%) invert(0%);
+    filter: grayscale(0%) invert(0%);
+  }
+  
+  .gp-image-portf:hover {
+    -webkit-filter: grayscale(0) invert(0%);
+    filter: grayscale(0) invert(0%)
+  }
+}
+
+.gp-image-portf-1 {
+  min-width: 100%;
 }
 
 .gp-image-portf {
@@ -6708,7 +6722,7 @@ html.w-mod-js [data-ix=ani-start] {
     top: 0
   }
 
-  .gp-image-portf.def {
+  .gp-image-portf.def, .gp-image-portf-1.def {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
