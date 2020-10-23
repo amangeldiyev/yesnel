@@ -4539,19 +4539,19 @@ figure {
   text-align: center
 }
 
-/* .gp-img {
-  -webkit-filter: invert(100%) grayscale(100%);
-  filter: invert(100%) grayscale(100%);
+ .gp-img {
+  /* -webkit-filter: invert(100%) grayscale(100%);
+  filter: invert(100%) grayscale(100%); */
   -webkit-transition: -webkit-filter .3s ease;
   transition: -webkit-filter .3s ease;
   transition: filter .3s ease;
   transition: filter .3s ease, -webkit-filter .3s ease
 }
 
-.gp-img:hover {
+/* .gp-img:hover {
   -webkit-filter: invert(100%) grayscale(0);
   filter: invert(100%) grayscale(0)
-} */
+}  */
 
 .gp-img.project {
   min-width: 100%;
@@ -4587,10 +4587,6 @@ figure {
   }
 }
 
-.gp-image-portf-1 {
-  min-width: 100%;
-}
-
 .gp-image-portf {
   min-width: 100%;
   -webkit-filter: grayscale(100%) invert(100%);
@@ -4604,6 +4600,16 @@ figure {
 .gp-image-portf:hover {
   -webkit-filter: grayscale(0) invert(100%);
   filter: grayscale(0) invert(100%)
+}
+
+.gp-image-portf.alt {
+  -webkit-filter: grayscale(0%) invert(0%);
+  filter: grayscale(0%) invert(0%);
+}
+
+.gp-image-portf.alt:hover {
+  -webkit-filter: grayscale(0) invert(0%);
+  filter: grayscale(0) invert(0%)
 }
 
 .gp-from-to-head {
@@ -6722,7 +6728,7 @@ html.w-mod-js [data-ix=ani-start] {
     top: 0
   }
 
-  .gp-image-portf.def, .gp-image-portf-1.def {
+  .gp-image-portf.def {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -ms-flex: 0 0 auto;
