@@ -6,7 +6,7 @@ const svg = document.querySelector("svg");
 var imageDataArray = [];
 var canvasCount = 40;
 
-$(".content").click(function () {
+$(".start").click(function () {
 
     var audio = document.getElementById('song');
     audio.volume = 0.2;
