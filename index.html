@@ -3,61 +3,110 @@
 <head>
     <title><3</title>
     <style>
-    body, html {
-    height: 100%;
-    margin: 0;
-    }
-    
-    .bgimg {
-        background-color: black;
-    background-image: url('/w3images/forestbridge.jpg');
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 25px;
-    }
-    
-    .topleft {
-    position: absolute;
-    top: 0;
-    left: 16px;
-    }
-    
-    .bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 16px;
-    }
-    
-    .middle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    }
-    
-    hr {
-    margin: auto;
-    width: 40%;
-    }
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .bgimg {
+            background-color: black;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+            'Helvetica Neue', sans-serif;
+            font-size: 25px;
+        }
+
+        .topleft {
+            position: absolute;
+            top: 0;
+            left: 16px;
+        }
+
+        .bottomleft {
+            position: absolute;
+            bottom: 10px;
+            left: 16px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .middle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        hr {
+            margin: auto;
+            width: 40%;
+        }
+
+        .heart {
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+            transform: scale(1);
+            animation: pulse 2s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.85);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+            }
+
+            100% {
+                transform: scale(0.85);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="bgimg">
-<div class="topleft">
-    <p></p>
+    <div class="topleft">
+        <p></p>
+    </div>
+    <div class="middle">
+        <h1>Good Bye</h1>
+        <hr>
+        <p>02.10.20 - 23.12.20</p>
+        <br>
+        <img id="heart" class="heart" src="images/heart.png" alt="" height="60px" onclick="playSong()">
+    </div>
+    <div class="bottomleft" id="songname">
+        <p>Only 1 (INTERLUDE)</p>
+    </div>
 </div>
-<div class="middle">
-    <h1>Good Bye</h1>
-    <hr>
-    <p>02.10.20 - 23.12.20</p>
-</div>
-</div>
+<audio loop style="display: none;" id="song">
+    <source src="assets/only-1.mp3" type="audio/mpeg">
+</audio>
 
+<script>
+
+    function playSong() {
+        var heart = document.getElementById('heart');
+        heart.classList.remove("heart");
+        // heart.src = "images/broken1.png";
+        // heart.style.height = "45px"
+
+        var audio = document.getElementById('song');
+        audio.volume = 0.2;
+        audio.play();
+
+        document.getElementById('songname').style.display = "block"
+    }
+</script>
 </body>
 </html>
