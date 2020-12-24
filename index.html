@@ -1,31 +1,132 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<!DOCTYPE html>
+<html>
+<head>
     <title><3</title>
-    <link rel="stylesheet" href="assets/css/snap.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.18/chance.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  </head>
-  <body>
-    
-    <div class="middle">
-        <div class="content start">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 4.435c-1.989-5.399-12-4.597-12 3.568 0 4.068 3.06 9.481 12 14.997 8.94-5.516 12-10.929 12-14.997 0-8.118-10-8.999-12-3.568z" style="fill: #ff0000;"/></svg>
-        </div>
-        <h1 class="start">Good Bye</h1>
-        <hr>
-        <p class="start">&nbsp;02.10.20 - 23.12.20</p>
-    </div>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
 
-    <div class="bottomleft" id="songname">
-        <img src="images/music.png" alt="Only 1(INTERLUDE)" title="Only 1(INTERLUDE)">
+        .bgimg {
+            background-color: black;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+            'Helvetica Neue', sans-serif;
+            font-size: 25px;
+        }
+
+        .topleft {
+            position: absolute;
+            top: 0;
+            left: 16px;
+        }
+
+        .bottomleft {
+            position: absolute;
+            bottom: 10px;
+            left: 16px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .bottomleft img {
+            float: left;
+            height: 35px;
+            animation: pulse 2s infinite;
+            margin-right: 5px;
+        }
+
+        .middle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .middle h1 {
+            cursor: pointer;
+        }
+
+        .middle h1:hover {
+            text-decoration: underline;
+            /* color: indianred; */
+        }
+
+        hr {
+            margin: auto;
+            width: 40%;
+        }
+
+        .heart {
+            height: 40px;
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+            transform: scale(1);
+            cursor: pointer;
+        }
+
+        .pulsing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.75);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+            }
+
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+            }
+
+            100% {
+                transform: scale(0.75);
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bgimg">
+    <div class="topleft">
+        <p></p>
     </div>
-    <audio style="display: none;" id="song">
-        <source src="assets/song.mp3" type="audio/mpeg">
-    </audio>
-    <script src="assets/js/snap.js"></script>
-  </body>
+    <div class="middle">
+        <h1 onclick="playSong()">My Entropy</h1>
+        <hr>
+        <!-- <p>02.10.20 - </p> -->
+        <br>
+        <img class="heart" id="heart" onclick="playSong()" src="images/heart.png" alt="">
+    </div>
+    <div class="bottomleft" id="songname">
+        <img src="images/music.png" alt="Unforgettable" title="Unforgettable">
+    </div>
+</div>
+<audio style="display: none;" id="song">
+    <source src="assets/unforgettable.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+    function playSong() {
+        var heart = document.getElementById('heart');
+        heart.classList.add("pulsing");
+        // heart.src = "images/broken1.png";
+        // heart.style.height = "45px"
+
+        var audio = document.getElementById('song');
+        audio.volume = 0.2;
+        audio.play();
+
+        document.getElementById('songname').style.display = "block"
+    }
+</script>
+</body>
 </html>
